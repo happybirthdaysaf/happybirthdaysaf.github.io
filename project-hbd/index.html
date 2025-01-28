@@ -75,7 +75,7 @@
         let { value: pesan } = await swalo.fire({ title: "Tulis pesan", input: "textarea", confirmButtonText: "Send" });
         if (pesan) {
           await swalo.fire({
-            title: "u know what im saying",
+            title: "kalo pengen ngirim pesan buat pengirim kesini ya '@",
           });
           location.assign(`https://wa.me/${noWhatsapp}?text=${pesan}`);
         } else {
