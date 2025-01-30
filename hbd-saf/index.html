@@ -29,7 +29,7 @@
         </div>
         <img src="" class="foto" />
         <img class="surat" src="https://dekatutorial.github.io/spesial_mail.png" />
-        <p>dont touch me</p>
+        <p>tap here</p>
       </div>
     </div>
 
@@ -38,14 +38,14 @@
 
       // Masukan nama file musik dan foto beserta ekstensinya (misal: foto.jpg)
       musik = "lagu.mp3";
-      foto = "1.jpg";
+      foto = "sap.jpeg";
 
       // Untuk menambah slide tinggal ditambahin dibawah nya sesuai contoh
       // Jika ingin tanpa pertanyaan tinggal dihapus bagian pertanyaan dan jawaban seperti contoh
       konten = [
         {
 		  pertanyaan: "1+7+2-1 =",
-          jawaban: "9"
+          jawaban: "9",
           ucapan: "First of all I want to wish you a happy birthday ",
         },
         {
@@ -56,12 +56,12 @@
         {
           pertanyaan: "tahun berapa team hoki es New jersey Devils memenangkan piala stanley=",
           jawaban: "2003",
-          ucapan: "barakallah fii umrik safitri, berkah umur dan rezekinyaa yaa, bahagia dan sehat selalu yaa. semoga di umur yang udah kepala dua + 3 ini, selalu dikelilingin sama hal-hal baikk yaa dan dijauhin dari orang-orang yg ingin bersikap jahat atau lingkungan toxic. no more sedih sedih dan  harus happyy selaluu!!",
+          ucapan: "barakallah fii umrik safitri, berkah umur dan rezekinyaa yaa, bahagia dan sehat selalu yaa. semoga di umur yang udah kepala dua + 3 ini, selalu dikelilingin sama hal-hal baikk yaa dan dijauhin dari orang-orang yg ingin bersikap jahat atau lingkungan toxic. no more sedih sedih dan harus happy selaluu!!",
         },
         {
 		  pertanyaan: "Dalam sebuah arsip digital, terdapat sebuah dokumen penting yang diberi kode unik. Jika kode dokumen tersebut adalah angka tiga digit yang diakhiri dengan angka 3, dimulai dengan angka 9, dan angka tengahnya adalah jawaban no 2, berapakah kode dokumen tersebut? =",
           jawaban: "963",
-          ucapan: "pesan dari aku buat kamu,kamu jangan pernah ngerasa sendirian ya jangan terlalu memikirkan apa apa yang tidak perlu,semangat terus kejar karirnya,jangan peduli sama orang orang yg gada kontribusinya buat kamu.and last, 'BERSYUKUR ATAS HAL HAL BAIK YANG DATANGNYA BELAKANGAN' ",
+          ucapan: "pesan dari aku buat kamu,kamu jangan pernah ngerasa sendirian ya jangan terlalu memikirkan apa apa yang tidak perlu,semangat terus kejar karirnya,jangan peduli sama orang orang yg gada kontribusinya buat kamu.now you must loving yourself.stop jadi orang gaenakan kamu harus mikirin buat diri sendiri jangan buat orang lain karna di umur sekarang kamu bakalan ketemu sama orang yang kek anjing karna tidak semua anjing berbentuk hewan , 'BERSYUKUR ATAS HAL HAL BAIK YANG DATANGNYA BELAKANGAN'                                                   kalo pengen nyampein sesuatu buat aku ke x @secretanon16387 ya  ",
 	},	
       ];
 
@@ -75,7 +75,7 @@
         let { value: pesan } = await swalo.fire({ title: "Tulis pesan", input: "textarea", confirmButtonText: "Send" });
         if (pesan) {
           await swalo.fire({
-            title: "u know what im saying",
+            title: "kalo pengen ngirim pesan buat pengirim kesini ya '@",
           });
           location.assign(`https://wa.me/${noWhatsapp}?text=${pesan}`);
         } else {
