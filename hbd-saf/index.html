@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 
+  Mau custom web ucapan online? Order di Dika Tutorial aja!
+  Youtube: Deka Tutorial
+  Tiktok: @deka_tutorial
+  Instagram: @deka_tutorial
+  -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Special For You</title>
+  </head>
+  <body>
+    <div class="pldr">
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <div class="bg"></div>
+
+    <div class="content">
+      <div class="card">
+        <div>
+          <h3>safitri dewi febriyanti</h3>
+        </div>
+        <img src="" class="foto" />
+        <img class="surat" src="https://dekatutorial.github.io/spesial_mail.png" />
+        <p>dont touch me</p>
+      </div>
+    </div>
+
+    <script>
+      background = "https://dekatutorial.github.io/v/rynsql/bg.webp";
+
+      // Masukan nama file musik dan foto beserta ekstensinya (misal: foto.jpg)
+      musik = "lagu.mp3";
+      foto = "1.jpg";
+
+      // Untuk menambah slide tinggal ditambahin dibawah nya sesuai contoh
+      // Jika ingin tanpa pertanyaan tinggal dihapus bagian pertanyaan dan jawaban seperti contoh
+      konten = [
+        {
+		  pertanyaan: "1+7+2-1 =",
+          jawaban: "9"
+          ucapan: "First of all I want to wish you a happy birthday ",
+        },
+        {
+          pertanyaan: "VI=? =",
+          jawaban: "6",
+          ucapan: "I am always grateful to have known you in my life. Even though we feel like strangers now, I hope you are always happy there and I hope we remain good friends..",
+        },
+        {
+          pertanyaan: "tahun berapa team hoki es New jersey Devils memenangkan piala stanley=",
+          jawaban: "2003",
+          ucapan: "barakallah fii umrik safitri, berkah umur dan rezekinyaa yaa, bahagia dan sehat selalu yaa. semoga di umur yang udah kepala dua + 3 ini, selalu dikelilingin sama hal-hal baikk yaa dan dijauhin dari orang-orang yg ingin bersikap jahat atau lingkungan toxic. no more sedih sedih dan  harus happyy selaluu!!",
+        },
+        {
+		  pertanyaan: "Dalam sebuah arsip digital, terdapat sebuah dokumen penting yang diberi kode unik. Jika kode dokumen tersebut adalah angka tiga digit yang diakhiri dengan angka 3, dimulai dengan angka 9, dan angka tengahnya adalah jawaban no 2, berapakah kode dokumen tersebut? =",
+          jawaban: "963",
+          ucapan: "pesan dari aku buat kamu,kamu jangan pernah ngerasa sendirian ya jangan terlalu memikirkan apa apa yang tidak perlu,semangat terus kejar karirnya,jangan peduli sama orang orang yg gada kontribusinya buat kamu.and last, 'BERSYUKUR ATAS HAL HAL BAIK YANG DATANGNYA BELAKANGAN' ",
+			},
+		
+      ];
+
+      // Nomor wa diawali 62
+      noWhatsapp = "";
+
+      // Khusus kode dibawah ini cukup edit bagian title, yg lain jangan diapa-apain
+
+      const swalo = Swal.mixin({ allowOutsideClick: false });
+      async function kirimPesan() {
+        let { value: pesan } = await swalo.fire({ title: "Tulis pesan", input: "textarea", confirmButtonText: "Send" });
+        if (pesan) {
+          await swalo.fire({
+            title: "u know what im saying",
+          });
+          location.assign(`https://wa.me/${noWhatsapp}?text=${pesan}`);
+        } else {
+          await swalo.fire({ title: "Jangan dikosongin ya :)" });
+          kirimPesan();
+        }
+      }
+
+      let indC = 0;
+      function nextContent() {
+        const indTemp = indC;
+        function tampilPaper() {
+          if (indC < konten.length) {
+            const paperC = document.querySelector(`.content-paper-${indTemp}`);
+            paperC.classList.add("show");
+            setTimeout(() => {
+              ketik(konten[indTemp].ucapan, `.pesan-${indTemp}`, () => {});
+            }, 300);
+
+            indC++;
+          }
+        }
+
+        if (indC == konten.length) {
+          kirimPesan();
+        } else if (indC < konten.length) {
+          if (indC > 0) {
+            const paperC = document.querySelector(`.content-paper-${indTemp - 1}`);
+            paperC.style = "transition: .5s all ease; opacity: 0";
+            setTimeout(() => {
+              paperC.classList.remove("show");
+            }, 500);
+          }
+          if (typeof konten[indTemp].pertanyaan == "undefined" || typeof konten[indTemp].pertanyaan == "undefined") {
+            tampilPaper();
+          } else {
+            setTimeout(tanya, 500);
+          }
+        }
+
+        async function tanya() {
+          var { value: pesan } = await swalo.fire({ title: konten[indTemp].pertanyaan, input: "text", confirmButtonText: "Kirim" });
+          if (pesan) {
+            if (pesan == konten[indTemp].jawaban) {
+              await swalo.fire({ title: "keren bisa jawab", icon: "success" });
+
+              tampilPaper();
+            } else {
+              await swalo.fire({ title: "yah gagal :(", icon: "error" });
+              tanya();
+            }
+          } else {
+            await swalo.fire({ title: "Jangan dikosongin!" });
+            tanya();
+          }
+        }
+      }
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
